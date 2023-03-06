@@ -1,6 +1,8 @@
 import { Result } from "@/types/games";
 import PlatformIcon from "@/components/PlatformIcon";
 import Image from "next/image";
+import { FaPlus } from "react-icons/fa";
+import { GoGift } from "react-icons/go";
 
 type Props = {
   game: Result;
@@ -14,13 +16,13 @@ function GameCard({ game }: Props) {
           src={game.background_image}
           width={600}
           height={600}
-          className="max-h-[265px] bg-cover object-cover"
+          className="h-[265px] bg-cover object-cover"
           alt="background image game"
         />
       </figure>
       <div className="grid gap-2 bg-zinc-800/80 p-4">
         <div className="flex w-full items-center justify-between">
-          <div className="flex h-6 items-center gap-2 py-1">
+          <div className="flex h-6 items-center gap-1 py-1">
             {game.parent_platforms.map((platform) => (
               <PlatformIcon platform={platform} key={platform.platform.id} />
             ))}
@@ -30,9 +32,14 @@ function GameCard({ game }: Props) {
           </span>
         </div>
         <h2 className="text-2xl font-bold">{game.name}</h2>
-        <div className="flex items-center gap-1">
-          <span className="rounded-md bg-zinc-700 py-[2px] px-[6px] text-xs font-medium">{`+ ${game.added}`}</span>
-          <span className="bg-zinc-700 py-[2px] px-[6px] text-xs">Regalar</span>
+        <div className="flex items-center gap-1 mt-1">
+          <span className="rounded-md bg-zinc-700 py-[3px] px-[6px] text-[12px] font-normal flex items-center">
+            <FaPlus className="text-zinc-50 font-bold text-sm mr-1"/>
+            {game.added}
+          </span>
+          <span className="bg-zinc-700 py-[3px] px-[6px] text-xs rounded-md">
+            <GoGift className="text-lg max-h-fit" />
+          </span>
         </div>
 
         <button className="mx-auto mt-2 inline-block max-w-max border-b border-zinc-100/40 text-sm">
