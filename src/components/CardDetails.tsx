@@ -1,6 +1,7 @@
 import { Result } from "@/types/games";
 import { formatDate } from "@/utils/formatDate";
 import { BsChevronRight } from "react-icons/bs";
+import { Alert } from "flowbite-react";
 
 type Props = {
   game: Result;
