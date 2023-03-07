@@ -1,14 +1,19 @@
-import { Result } from "@/types/games";
+"use client";
 import PlatformIcon from "@/components/PlatformIcon";
+import { Result } from "@/types/games";
 import Image from "next/image";
+import { useState } from "react";
 import { FaPlus } from "react-icons/fa";
 import { GoGift } from "react-icons/go";
+import CardDetails from "./CardDetails";
 
 type Props = {
   game: Result;
 };
 
 function GameCard({ game }: Props) {
+  const [show, setShow] = useState<Boolean>(false);
+
   return (
     <div key={game.id} className="max-w-[463px] overflow-hidden rounded-xl">
       <figure className="relative">
@@ -20,7 +25,7 @@ function GameCard({ game }: Props) {
           alt="background image game"
         />
       </figure>
-      <div className="grid gap-2 bg-zinc-800/80 p-4">
+      <div className="grid gap-2 bg-zinc-800/40 p-4">
         <div className="flex w-full items-center justify-between">
           <div className="flex h-6 items-center gap-1 py-1">
             {game.parent_platforms.map((platform) => (
@@ -32,29 +37,26 @@ function GameCard({ game }: Props) {
           </span>
         </div>
         <h2 className="text-2xl font-bold">{game.name}</h2>
-        <div className="flex items-center gap-1 mt-1">
-          <span className="rounded-md bg-zinc-700 py-[3px] px-[6px] text-[12px] font-normal flex items-center">
-            <FaPlus className="text-zinc-50 font-bold text-sm mr-1"/>
+        <div className="mt-1 flex items-center gap-1">
+          <span className="flex items-center rounded-md bg-zinc-700 py-[3px] px-[6px] text-[12px] font-normal">
+            <FaPlus className="mr-1 text-sm font-bold text-zinc-50" />
             {game.added}
           </span>
-          <span className="bg-zinc-700 py-[3px] px-[6px] text-xs rounded-md">
-            <GoGift className="text-lg max-h-fit" />
+          <span className="rounded-md bg-zinc-700 py-[3px] px-[6px] text-xs">
+            <GoGift className="max-h-fit text-lg" />
           </span>
         </div>
 
-        <button className="mx-auto mt-2 inline-block max-w-max border-b border-zinc-100/40 text-sm">
-          View more
-        </button>
-        <div className="hidden">
-          <ul>
-            <li>{game.released}</li>
-            <li>
-              {game.genres.map((genre) => (
-                <span key={genre.id}>{genre.name}</span>
-              ))}
-            </li>
-          </ul>
-        </div>
+        {show ? (
+          <button
+            className="mx-auto mt-2 inline-block max-w-max border-b border-zinc-100/40 text-sm"
+            onClick={() => setShow(false)}
+          >
+            View more
+          </button>
+        ) : (
+          <CardDetails game={game} setShow={setShow} />
+        )}
       </div>
     </div>
   );

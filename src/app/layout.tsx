@@ -1,3 +1,4 @@
+import Header from "@/components/Header";
 import "./globals.css";
 
 export const metadata = {
@@ -13,7 +14,12 @@ type Props = {
 export default function RootLayout({ children }: Props) {
   return (
     <html lang="en">
-      <body className=''>{children}</body>
+      <body className="min-h-screen bg-zinc-900 text-zinc-100">
+        <div>
+          <Header />
+          {children}
+        </div>
+      </body>
     </html>
   );
 }
