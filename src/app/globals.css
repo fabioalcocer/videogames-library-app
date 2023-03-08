@@ -12,7 +12,7 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 a {
@@ -21,5 +21,5 @@ a {
 }
 
 .floating svg {
-  @apply ml-9 text-zinc-500 h-5 w-5
+  @apply ml-9 h-5 w-5 text-zinc-500;
 }

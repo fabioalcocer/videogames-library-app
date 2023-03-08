@@ -1,7 +1,23 @@
 "use client";
 import { Dropdown } from "flowbite-react";
+import Link from "next/link";
+import { Platform } from "@/types/platforms";
 
-function DropDown() {
+type Props = {
+  platforms: Platform[];
+};
+
+function DropDown({ platforms }: Props) {
+  const filterPlatforms = platforms.filter(
+    (platform) =>
+      platform.id !== 6 &&
+      platform.id !== 9 &&
+      platform.id !== 10 &&
+      platform.id !== 11 &&
+      platform.id !== 12 &&
+      platform.id !== 13
+  );
+
   return (
     <div className="">
       <Dropdown
@@ -18,41 +34,14 @@ function DropDown() {
         <Dropdown.Item className="pointer-events-none justify-center">
           <span className="block text-sm text-gray-400">Platforms</span>
         </Dropdown.Item>
-        <Dropdown.Item className="justify-center text-center">
-          <a href="https://google.com" target="_blank" rel="noreferrer">
-            PC
-          </a>
-        </Dropdown.Item>
-        <Dropdown.Item className="justify-center">
-          <a href="https://google.com" target="_blank" rel="noreferrer">
-            PlayStation
-          </a>
-        </Dropdown.Item>
-        <Dropdown.Item className="justify-center">
-          <a href="https://google.com" target="_blank" rel="noreferrer">
-            Xbox
-          </a>
-        </Dropdown.Item>
-        <Dropdown.Item className="justify-center">
-          <a href="https://google.com" target="_blank" rel="noreferrer">
-            iOS
-          </a>
-        </Dropdown.Item>
-        <Dropdown.Item className="justify-center">
-          <a href="https://google.com" target="_blank" rel="noreferrer">
-            Android
-          </a>
-        </Dropdown.Item>
-        <Dropdown.Item className="justify-center">
-          <a href="https://google.com" target="_blank" rel="noreferrer">
-            Nintendo
-          </a>
-        </Dropdown.Item>
-        <Dropdown.Item className="justify-center">
-          <a href="https://google.com" target="_blank" rel="noreferrer">
-            Web
-          </a>
-        </Dropdown.Item>
+        {filterPlatforms.map((platform) => (
+          <Dropdown.Item
+            className="justify-center text-center"
+            key={platform.id}
+          >
+            <Link href={`/${platform.name}`}>{platform.name}</Link>
+          </Dropdown.Item>
+        ))}
       </Dropdown>
     </div>
   );

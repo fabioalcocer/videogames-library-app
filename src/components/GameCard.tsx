@@ -12,7 +12,7 @@ type Props = {
 };
 
 function GameCard({ game }: Props) {
-  const [show, setShow] = useState<Boolean>(false);
+  const [show, setShow] = useState<Boolean>(true);
 
   return (
     <div key={game.id} className="max-w-[463px] overflow-hidden rounded-xl">
@@ -38,10 +38,10 @@ function GameCard({ game }: Props) {
         </div>
         <h2 className="text-2xl font-bold">{game.name}</h2>
         <div className="mt-1 flex items-center gap-1">
-          <span className="flex items-center rounded-md bg-zinc-700 py-[3px] px-[6px] text-[12px] font-normal">
+          <button className="flex items-center rounded-md bg-zinc-700 py-[3px] px-[6px] text-[12px] font-normal">
             <FaPlus className="mr-1 text-sm font-bold text-zinc-50" />
             {game.added}
-          </span>
+          </button>
           <span className="rounded-md bg-zinc-700 py-[3px] px-[6px] text-xs">
             <GoGift className="max-h-fit text-lg" />
           </span>

@@ -15,7 +15,7 @@ export default function RootLayout({ children }: Props) {
   return (
     <html lang="en">
       <body className="min-h-screen bg-zinc-900 text-zinc-100">
-        <div>
+        <div className="flex w-full flex-col items-center">
           <Header />
           {children}
         </div>
