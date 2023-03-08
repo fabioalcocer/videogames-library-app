@@ -1,4 +1,7 @@
-import { notFound } from "next/navigation";
+import { getGames } from "@/api";
+import { Result } from "../../types/games";
+import { findIdPlatform } from "@/utils/findIdPlatform";
+import GameCard from "@/components/GameCard";
 
 type Props = {
   params: {
@@ -7,5 +10,14 @@ type Props = {
 };
 
 export default async function Slug({ params: { slug } }: Props) {
-  return <div>{slug}</div>;
+  const id = findIdPlatform(slug);
+  const { results } = await getGames(id);
+
+  return (
+    <section className="flex flex-wrap justify-center gap-5">
+      {results.map((game: Result) => (
+        <GameCard key={game.id} game={game} />
+      ))}
+    </section>
+  );
 }

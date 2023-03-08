@@ -35,12 +35,11 @@ function DropDown({ platforms }: Props) {
           <span className="block text-sm text-gray-400">Platforms</span>
         </Dropdown.Item>
         {filterPlatforms.map((platform) => (
-          <Dropdown.Item
-            className="justify-center text-center"
-            key={platform.id}
-          >
-            <Link href={`/${platform.name}`}>{platform.name}</Link>
-          </Dropdown.Item>
+          <Link key={platform.id} href={`/${platform.name}`}>
+            <Dropdown.Item className="justify-center text-center">
+              {platform.name}
+            </Dropdown.Item>
+          </Link>
         ))}
       </Dropdown>
     </div>
