@@ -1,5 +1,5 @@
 import { getGames } from "@/api";
-import { Result } from "../../types/games";
+import { Result } from "@/types/games";
 import { findIdPlatform } from "@/utils/findIdPlatform";
 import GameCard from "@/components/GameCard";
 

@@ -17,10 +17,10 @@ export const getPlatforms = async () => {
   const res = await gamesApi.get(
     "/platforms/lists/parents?key=197ef46d995a4a3ab410d8bb4d6392b6&"
   );
-  const resultPlatforms = res.data.results.map((platform: Genre) => {
-    const resultPlatform = { id: platform.id, name: platform.name };
-    return resultPlatform;
-  });
+  // const resultPlatforms = res.data.results.map((platform: Genre) => {
+  //   const resultPlatform = { id: platform.id, name: platform.name };
+  //   return resultPlatform;
+  // });
 
-  return resultPlatforms;
+  return res.data.results;
 };

@@ -1,7 +1,8 @@
 "use client";
 import { Dropdown } from "flowbite-react";
 import Link from "next/link";
-import { Platform } from "@/types/platforms";
+import type { Platform } from "@/types/platforms";
+import { AiOutlineRight } from "react-icons/ai";
 
 type Props = {
   platforms: Platform[];
@@ -17,6 +18,8 @@ function DropDown({ platforms }: Props) {
       platform.id !== 12 &&
       platform.id !== 13
   );
+
+  const playStationPlatforms = filterPlatforms[1].platforms?.slice(0, 4);
 
   return (
     <div className="">
@@ -35,10 +38,28 @@ function DropDown({ platforms }: Props) {
           <span className="block text-sm text-gray-400">Platforms</span>
         </Dropdown.Item>
         {filterPlatforms.map((platform) => (
-          <Link key={platform.id} href={`/${platform.name}`}>
-            <Dropdown.Item className="justify-center text-center">
-              {platform.name}
-            </Dropdown.Item>
+          <Link key={platform.id} href={`/${platform.slug}`}>
+            {platform.name === "PlayStation" ? (
+              <>
+                <Dropdown.Item className="peer relative justify-center">
+                  <p>{platform.name}</p>
+                  <AiOutlineRight className="absolute right-2" />
+                </Dropdown.Item>
+                <div className="absolute left-32 top-20 z-30 hidden w-max justify-center rounded-md bg-white shadow-md hover:block peer-hover:block">
+                  {playStationPlatforms?.map((playPlatform) => (
+                    <Link key={playPlatform.id} href={`/${playPlatform.slug}`}>
+                      <Dropdown.Item className="">
+                        <p>{playPlatform.name} </p>
+                      </Dropdown.Item>
+                    </Link>
+                  ))}
+                </div>
+              </>
+            ) : (
+              <Dropdown.Item className="justify-center text-center">
+                {platform.name}
+              </Dropdown.Item>
+            )}
           </Link>
         ))}
       </Dropdown>
