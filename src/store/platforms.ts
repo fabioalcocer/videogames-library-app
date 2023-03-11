@@ -1,14 +1,14 @@
 import { create } from "zustand";
 
-type platformsState = {
-  arrPlatform: any[];
-  addPlatforms: (platforms: Record<number, string>[]) => void;
+type titleState = {
+  titleName: string;
+  setTitle: (title: string) => void;
 };
 
-export const usePlatformStore = create<platformsState>((set) => ({
-  arrPlatform: [],
-  addPlatforms: (platforms) =>
+export const useTitleStore = create<titleState>((set) => ({
+  titleName: "New and trending",
+  setTitle: (title: string) =>
     set((state) => ({
-      arrPlatform: platforms,
+      titleName: title,
     })),
 }));

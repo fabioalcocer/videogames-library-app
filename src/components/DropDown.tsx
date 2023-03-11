@@ -1,14 +1,16 @@
 "use client";
+import type { Platform } from "@/types/platforms";
 import { Dropdown } from "flowbite-react";
 import Link from "next/link";
-import type { Platform } from "@/types/platforms";
 import { AiOutlineRight } from "react-icons/ai";
+import { useTitleStore } from "@/store/platforms";
 
 type Props = {
   platforms: Platform[];
 };
 
 function DropDown({ platforms }: Props) {
+  const setTitle = useTitleStore((state) => state.setTitle);
   const filterPlatforms = platforms.filter(
     (platform) =>
       platform.id !== 6 &&
@@ -19,7 +21,7 @@ function DropDown({ platforms }: Props) {
       platform.id !== 13
   );
 
-  const playStationPlatforms = filterPlatforms[1].platforms?.slice(0, 4);
+  const playStationPlatforms = filterPlatforms[1]?.platforms?.slice(0, 4);
 
   return (
     <div className="">
@@ -48,7 +50,10 @@ function DropDown({ platforms }: Props) {
                 <div className="absolute left-32 top-20 z-30 hidden w-max justify-center rounded-md bg-white shadow-md hover:block peer-hover:block">
                   {playStationPlatforms?.map((playPlatform) => (
                     <Link key={playPlatform.id} href={`/${playPlatform.slug}`}>
-                      <Dropdown.Item className="">
+                      <Dropdown.Item
+                        className=""
+                        onClick={() => setTitle(playPlatform.name)}
+                      >
                         <p>{playPlatform.name} </p>
                       </Dropdown.Item>
                     </Link>
@@ -56,7 +61,10 @@ function DropDown({ platforms }: Props) {
                 </div>
               </>
             ) : (
-              <Dropdown.Item className="justify-center text-center">
+              <Dropdown.Item
+                className="justify-center text-center"
+                onClick={() => setTitle(platform.name as string)}
+              >
                 {platform.name}
               </Dropdown.Item>
             )}
