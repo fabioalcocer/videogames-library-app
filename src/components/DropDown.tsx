@@ -52,7 +52,9 @@ function DropDown({ platforms }: Props) {
                     <Link key={playPlatform.id} href={`/${playPlatform.slug}`}>
                       <Dropdown.Item
                         className=""
-                        onClick={() => setTitle(playPlatform.name)}
+                        onClick={() =>
+                          setTitle(`Games for ${playPlatform.name}`)
+                        }
                       >
                         <p>{playPlatform.name} </p>
                       </Dropdown.Item>
@@ -63,7 +65,7 @@ function DropDown({ platforms }: Props) {
             ) : (
               <Dropdown.Item
                 className="justify-center text-center"
-                onClick={() => setTitle(platform.name as string)}
+                onClick={() => setTitle(`Games for ${platform.name}`)}
               >
                 {platform.name}
               </Dropdown.Item>
