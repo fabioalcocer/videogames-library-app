@@ -28,7 +28,7 @@ function GameCard({ game }: Props) {
       <div className="grid gap-2 bg-zinc-800/40 p-4">
         <div className="flex w-full items-center justify-between">
           <div className="flex h-6 items-center gap-1 py-1">
-            {game.parent_platforms.map((platform) => (
+            {game.parent_platforms?.map((platform) => (
               <PlatformIcon platform={platform} key={platform.platform.id} />
             ))}
           </div>

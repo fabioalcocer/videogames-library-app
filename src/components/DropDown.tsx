@@ -3,14 +3,13 @@ import type { Platform } from "@/types/platforms";
 import { Dropdown } from "flowbite-react";
 import Link from "next/link";
 import { AiOutlineRight } from "react-icons/ai";
-import { useTitleStore } from "@/store/platforms";
+import { useTitleStore } from "@/store/games";
 
 type Props = {
   platforms: Platform[];
 };
 
 function DropDown({ platforms }: Props) {
-  const setTitle = useTitleStore((state) => state.setTitle);
   const filterPlatforms = platforms.filter(
     (platform) =>
       platform.id !== 6 &&
@@ -22,6 +21,8 @@ function DropDown({ platforms }: Props) {
   );
 
   const playStationPlatforms = filterPlatforms[1]?.platforms?.slice(0, 4);
+
+  const setTitle = useTitleStore((state) => state.setTitle);
 
   return (
     <div className="">
