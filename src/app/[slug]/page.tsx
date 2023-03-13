@@ -1,6 +1,6 @@
 import { getGames } from "@/api";
-import { findIdPlatform } from "@/utils/findIdPlatform";
 import GameCardsContainer from "@/components/GameCardsContainer";
+import { findIdPlatform } from "@/utils/findIdPlatform";
 
 type Props = {
   params: {

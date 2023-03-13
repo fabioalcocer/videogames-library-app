@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { Games, Result } from "@/types/games";
+import { Result } from "@/types/games";
 
 type titleState = {
   titleName: string;
@@ -7,12 +7,12 @@ type titleState = {
 };
 
 type gamesState = {
-  gamesData: Result[];
+  gamesData: Result[] | null;
   setGames: (games: Result[]) => void;
 };
 
 export const useGameStore = create<gamesState>((set) => ({
-  gamesData: [],
+  gamesData: null,
   setGames: (games: any) =>
     set((state) => ({
       gamesData: games,

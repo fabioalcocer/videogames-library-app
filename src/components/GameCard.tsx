@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 import PlatformIcon from "@/components/PlatformIcon";
 import { Result } from "@/types/games";
@@ -17,11 +18,9 @@ function GameCard({ game }: Props) {
   return (
     <div key={game.id} className="max-w-[463px] overflow-hidden rounded-xl">
       <figure className="relative">
-        <Image
+        <img
           src={game.background_image}
-          width={600}
-          height={600}
-          className="h-[265px] bg-cover object-cover"
+          className="min-w-[463px] h-[265px] bg-cover object-cover"
           alt="background image game"
         />
       </figure>
