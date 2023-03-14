@@ -6,6 +6,7 @@ import TabsSection from "@/components/TabsSection";
 import DropDown from "@/components/DropDown";
 import Description from "@/components/Description";
 import ReactQueryWrapper from "./ReactQueryWrapper";
+import Link from "next/link";
 
 export const metadata = {
   title: "Videogame library ",
@@ -24,17 +25,25 @@ export default async function RootLayout({ children }: Props) {
     <html lang="en">
       <body className="min-h-screen bg-zinc-900 text-zinc-100">
         <ReactQueryWrapper>
-          <div className="flex w-full flex-col items-center">
+          <div className="w-full">
             <Header />
-            <main className="mx-auto flex flex-col gap-5 py-8 px-5 pt-4 text-zinc-100">
-              <Description />
-              <TabsSection>
-                <DropDown platforms={platforms} />
-              </TabsSection>
-              <div className="grid grid-cols-aside">
-                <aside className="-z-10 max-h-screen mr-2 h-full w-52 bg-black">
-                  Text
-                </aside>
+            <main className="relative mx-auto grid min-h-screen grid-cols-aside gap-5 py-8 px-5 pt-4 text-zinc-100">
+              <aside className="sticky top-0 mr-2 flex h-96 w-full flex-col gap-5 py-6 px-5">
+                <Link href="/" className="text-2xl font-bold">
+                  Home
+                </Link>
+                <p className="text-2xl font-bold">
+                  Reviews
+                </p>
+                <p className="text-2xl font-bold">
+                  New Releases
+                </p>
+              </aside>
+              <div>
+                <Description />
+                <TabsSection>
+                  <DropDown platforms={platforms} />
+                </TabsSection>
                 {children}
               </div>
             </main>

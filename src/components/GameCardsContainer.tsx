@@ -11,7 +11,7 @@ function GameCardsContainer({ results }: Props) {
   const { gamesData } = useGameStore();
 
   return (
-    <section className="flex flex-wrap justify-center gap-5">
+    <section className="flex flex-wrap justify-center md:justify-start mt-7 gap-5">
       {gamesData ? (
         <>
           {gamesData.map((game: Result) => (

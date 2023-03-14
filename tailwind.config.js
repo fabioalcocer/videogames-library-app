@@ -11,7 +11,7 @@ module.exports = {
   theme: {
     extend: {
       gridTemplateColumns: {
-        aside: "200px 1fr",
+        aside: "220px 1fr",
       },
     },
   },

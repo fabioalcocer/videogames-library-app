@@ -1,16 +1,20 @@
+"use client";
 import Link from "next/link";
 import { GrMenu } from "react-icons/gr";
 import { FiMoreHorizontal } from "react-icons/fi";
+import { useTitleStore } from "@/store/games";
 
 import SearchBar from "./SearchBar";
 
 function Header() {
+  const setTitle = useTitleStore((state) => state.setTitle);
+
   return (
     <header className="flex w-full items-center justify-between px-6 py-5 text-zinc-100 md:justify-start md:px-10 md:py-8">
-      <Link href="/">
+      <Link href="/" onClick={() => setTitle("New and trending")}>
         <h1 className="text-lg font-extrabold tracking-[6px]">VLFA</h1>
       </Link>
-      <button className="ml-10 mr-4 w-40 rounded-md bg-white px-3 py-[3px] pl-5 text-sm text-zinc-900">
+      <button className="ml-10 mr-4 w-36 rounded-md bg-white px-3 py-[3px] pl-5 text-sm text-zinc-900">
         Rate top games
       </button>
       <SearchBar />

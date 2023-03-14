@@ -6,10 +6,10 @@ function Description() {
 
   return (
     <div className="mb-4">
-      <h4 className="mb-2 text-center text-4xl font-bold">
+      <h4 className="mb-2 text-center text-4xl font-bold md:text-left md:text-7xl">
         Games for {titleText}
       </h4>
-      <p className="text-center">
+      <p className="text-center md:text-left md:text-lg">
         Based on player counts and release date. The best and most popular{" "}
         {titleText} games.
       </p>
