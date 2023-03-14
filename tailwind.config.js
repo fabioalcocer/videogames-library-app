@@ -9,7 +9,11 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      gridTemplateColumns: {
+        aside: "200px 1fr",
+      },
+    },
   },
   plugins: [require("flowbite/plugin")],
 };

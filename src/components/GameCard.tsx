@@ -16,11 +16,11 @@ function GameCard({ game }: Props) {
   const [show, setShow] = useState<Boolean>(true);
 
   return (
-    <div key={game.id} className="max-w-[463px] overflow-hidden rounded-xl w-full">
+    <div key={game.id} className="max-w-[463px] md:max-w-[382px] md:h-max overflow-hidden rounded-xl w-full">
       <figure className="relative">
         <img
           src={game.background_image}
-          className="h-[265px] min-w-full bg-cover object-cover"
+          className="h-[265px] md:h-[215px] min-w-full bg-cover object-cover"
           alt="background image game"
         />
       </figure>

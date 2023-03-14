@@ -26,12 +26,17 @@ export default async function RootLayout({ children }: Props) {
         <ReactQueryWrapper>
           <div className="flex w-full flex-col items-center">
             <Header />
-            <main className="mx-auto flex max-w-7xl flex-col gap-5 py-8 px-5 pt-4 text-zinc-100">
+            <main className="mx-auto flex flex-col gap-5 py-8 px-5 pt-4 text-zinc-100">
               <Description />
               <TabsSection>
                 <DropDown platforms={platforms} />
               </TabsSection>
-              {children}
+              <div className="grid grid-cols-aside">
+                <aside className="-z-10 max-h-screen mr-2 h-full w-52 bg-black">
+                  Text
+                </aside>
+                {children}
+              </div>
             </main>
           </div>
         </ReactQueryWrapper>
