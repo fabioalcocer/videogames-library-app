@@ -6,7 +6,14 @@ const gamesApi = axios.create({
   baseURL: "https://api.rawg.io/api",
 });
 
-export const getGames = async (id: number | undefined) => {
+export const getGames = async () => {
+  const res = await gamesApi.get<Games>(
+    `/games?key=197ef46d995a4a3ab410d8bb4d6392b6`
+  );
+  return res.data;
+};
+
+export const getGamesByPlatform = async (id: number | undefined) => {
   const res = await gamesApi.get<Games>(
     `/games?key=197ef46d995a4a3ab410d8bb4d6392b6&platforms=${id}`
   );

@@ -3,20 +3,22 @@ import { useState } from "react";
 import { BiSearch } from "react-icons/bi";
 import { useGameStore } from "@/store/games";
 import { useSetSearchData } from "@/hooks/useGames";
+import debounce from "@/utils/debounce";
 
 function SearchBar() {
   const [query, setQuery] = useState("");
   const { data } = useSetSearchData(query);
-  // const { gamesData } = useGameStore();
   const setGames = useGameStore((state) => state.setGames);
 
-  // const handleChange = (event: React.FormEvent<HTMLInputElement>) => {
-  //   setQuery(event.currentTarget.value);
-  // };
+  const handleChange = debounce(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      setQuery(event.target.value);
+    },
+    500
+  );
 
   const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === "Enter") {
-      const query = event.currentTarget.value;
       const queryFormated = query.toLowerCase().split(" ").join("-");
       setQuery(queryFormated);
 
@@ -29,6 +31,7 @@ function SearchBar() {
   return (
     <div className="relative">
       <input
+        onChange={handleChange}
         onKeyUp={handleKeyPress}
         type="search"
         name="search"
@@ -36,7 +39,7 @@ function SearchBar() {
         placeholder="Search for games"
       />
       <BiSearch className="absolute top-2 left-4 fill-zinc-400 text-xl peer-focus:fill-zinc-900" />
-      <p>{data && JSON.stringify(data[0].name)}</p>
+      {/* <p>{data && JSON.stringify(data[0].name)}</p> */}
     </div>
   );
 }

@@ -1,28 +1,23 @@
 "use client";
+import { useTitleStore } from "@/store/games";
 import type { Platform } from "@/types/platforms";
+import { filterPlatformsFn } from "@/utils/filterPlatforms";
 import { Dropdown } from "flowbite-react";
 import Link from "next/link";
 import { AiOutlineRight } from "react-icons/ai";
-import { useTitleStore } from "@/store/games";
 
 type Props = {
   platforms: Platform[];
 };
 
 function DropDown({ platforms }: Props) {
-  const filterPlatforms = platforms.filter(
-    (platform) =>
-      platform.id !== 6 &&
-      platform.id !== 9 &&
-      platform.id !== 10 &&
-      platform.id !== 11 &&
-      platform.id !== 12 &&
-      platform.id !== 13
-  );
-
+  const filterPlatforms: Platform[] = filterPlatformsFn(platforms);
   const playStationPlatforms = filterPlatforms[1]?.platforms?.slice(0, 4);
-
   const setTitle = useTitleStore((state) => state.setTitle);
+
+  const handleClickPlatform = (platform: Platform) => {
+    setTitle(platform.name as string);
+  };
 
   return (
     <div className="">
@@ -53,9 +48,7 @@ function DropDown({ platforms }: Props) {
                     <Link key={playPlatform.id} href={`/${playPlatform.slug}`}>
                       <Dropdown.Item
                         className=""
-                        onClick={() =>
-                          setTitle(`Games for ${playPlatform.name}`)
-                        }
+                        onClick={() => handleClickPlatform(playPlatform)}
                       >
                         <p>{playPlatform.name} </p>
                       </Dropdown.Item>
@@ -66,7 +59,7 @@ function DropDown({ platforms }: Props) {
             ) : (
               <Dropdown.Item
                 className="justify-center text-center"
-                onClick={() => setTitle(`Games for ${platform.name}`)}
+                onClick={() => handleClickPlatform(platform)}
               >
                 {platform.name}
               </Dropdown.Item>

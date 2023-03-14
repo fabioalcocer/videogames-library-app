@@ -1,4 +1,4 @@
-import { getGames } from "@/api";
+import { getGamesByPlatform } from "@/api";
 import GameCardsContainer from "@/components/GameCardsContainer";
 import { findIdPlatform } from "@/utils/findIdPlatform";
 
@@ -10,7 +10,7 @@ type Props = {
 
 export default async function Slug({ params: { slug } }: Props) {
   const id = findIdPlatform(slug);
-  const { results } = await getGames(id);
+  const { results } = await getGamesByPlatform(id);
 
   return <GameCardsContainer results={results} />;
 }
