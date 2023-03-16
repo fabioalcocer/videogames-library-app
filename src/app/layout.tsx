@@ -27,17 +27,13 @@ export default async function RootLayout({ children }: Props) {
         <ReactQueryWrapper>
           <div className="w-full">
             <Header />
-            <main className="relative mx-auto grid min-h-screen grid-cols-aside gap-5 py-8 px-5 pt-4 text-zinc-100">
+            <main className="relative mx-auto grid min-h-screen grid-cols-aside gap-5 py-8 px-5 pt-2 text-zinc-100">
               <aside className="sticky top-0 mr-2 flex h-96 w-full flex-col gap-5 py-6 px-5">
                 <Link href="/" className="text-2xl font-bold">
                   Home
                 </Link>
-                <p className="text-2xl font-bold">
-                  Reviews
-                </p>
-                <p className="text-2xl font-bold">
-                  New Releases
-                </p>
+                <p className="text-2xl font-bold">Reviews</p>
+                <p className="text-2xl font-bold">New Releases</p>
               </aside>
               <div>
                 <Description />

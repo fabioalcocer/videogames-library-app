@@ -20,7 +20,7 @@ function DropDown({ platforms }: Props) {
   };
 
   return (
-    <div className="">
+    <div className="w-fit">
       <Dropdown
         theme={{
           floating: {

@@ -1,19 +1,7 @@
-export const formatDate = (arr: string[]) => {
-  const MONTHS: Record<string, string> = {
-    "1": "Jan",
-    "2": "Feb",
-    "3": "Mar",
-    "4": "Apr",
-    "5": "May",
-    "6": "Jun",
-    "7": "Jul",
-    "8": "Aug",
-    "9": "Sep",
-    "10": "Oct",
-    "11": "Nov",
-    "12": "Dec",
-  };
-
-  const date = `${MONTHS[arr[1]]} ${arr[2]}, ${arr[0]}`
-  return date
+export const formatDate = (date: string) => {
+  return new Date(date).toLocaleDateString("en-us", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  });
 };

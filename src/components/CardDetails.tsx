@@ -8,14 +8,14 @@ type Props = {
 };
 
 function CardDetails({ game, setShow }: Props) {
-  const dateArray = game.released.split("-");
-
   return (
-    <div className="flex flex-col">
+    <div className="z-50 flex animate-fade flex-col bg-[#202020] lg:absolute lg:-bottom-[182px] lg:left-0 lg:right-0 lg:hidden lg:p-4 lg:pt-0 lg:group-hover:block">
       <ul className="flex flex-col text-sm">
         <li className="flex items-center justify-between border-b border-zinc-700/60 py-3 text-neutral-500">
           <p>Release date:</p>
-          <span className="text-xs text-zinc-200">{formatDate(dateArray)}</span>
+          <span className="text-xs text-zinc-200">
+            {formatDate(game.released)}
+          </span>
         </li>
         <li className="flex items-center justify-between border-b border-zinc-700/60 py-3 text-neutral-500">
           <p>Genres:</p>
@@ -39,9 +39,12 @@ function CardDetails({ game, setShow }: Props) {
         View less
       </button>
 
-      <a href="" className="rounded-md mt-4 bg-zinc-700/50 py-3 px-4 text-sm flex items-center justify-between">
+      <a
+        href=""
+        className="mt-4 flex items-center justify-between rounded-md bg-zinc-700/50 py-3 px-4 text-sm"
+      >
         Show more like this
-        <BsChevronRight className="fill-gray-500 text-xl"/>
+        <BsChevronRight className="fill-gray-500 text-xl" />
       </a>
     </div>
   );

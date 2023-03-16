@@ -10,6 +10,15 @@ module.exports = {
   ],
   theme: {
     extend: {
+      keyframes: {
+        fade: {
+          "0%": { opacity: '0' },
+          "100%": { opacity: '1' },
+        },
+      },
+      animation: {
+        fade: "fade 0.3s linear 1",
+      },
       gridTemplateColumns: {
         aside: "220px 1fr",
       },
