@@ -1,7 +1,7 @@
 "use client";
 import GameCard from "@/components/GameCard";
 import type { Result } from "@/types/games";
-import { useGameStore } from "@/store/games";
+import { useGameStore, useWishlistStoreId } from "@/store/games";
 
 type Props = {
   results: Result[];
@@ -9,19 +9,28 @@ type Props = {
 
 function GameCardsContainer({ results }: Props) {
   const { gamesData } = useGameStore();
+  const { wishlistGamesId } = useWishlistStoreId();
 
   return (
-    <section className="flex flex-wrap justify-center md:justify-start mt-7 gap-5">
+    <section className="mt-7 flex flex-wrap justify-center gap-5 md:justify-start">
       {gamesData ? (
         <>
           {gamesData.map((game: Result) => (
-            <GameCard key={game.id} game={game} />
+            <GameCard
+              key={game.id}
+              game={game}
+              inWishlist={wishlistGamesId.includes(game.id)}
+            />
           ))}
         </>
       ) : (
         <>
           {results.map((game: Result) => (
-            <GameCard key={game.id} game={game} />
+            <GameCard
+              key={game.id}
+              game={game}
+              inWishlist={wishlistGamesId.includes(game.id)}
+            />
           ))}
         </>
       )}

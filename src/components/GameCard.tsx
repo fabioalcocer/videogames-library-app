@@ -1,19 +1,18 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 import PlatformIcon from "@/components/PlatformIcon";
-import { Result } from "@/types/games";
-import debounce from "@/utils/debounce";
-import Image from "next/image";
+import type { Result } from "@/types/games";
 import { useState } from "react";
 import { FaPlus } from "react-icons/fa";
-import { GoGift } from "react-icons/go";
+import AddWishlistBtn from "./AddWishlistBtn";
 import CardDetails from "./CardDetails";
 
 type Props = {
   game: Result;
+  inWishlist: boolean;
 };
 
-function GameCard({ game }: Props) {
+function GameCard({ game, inWishlist }: Props) {
   const [show, setShow] = useState<Boolean>(true);
 
   return (
@@ -45,7 +44,7 @@ function GameCard({ game }: Props) {
             <FaPlus className="mr-1 text-sm font-bold" />
             {game.added}
           </button>
-          <GoGift className="h-[24px] w-10 cursor-pointer rounded-md bg-zinc-700 p-[2px] text-xl transition-all duration-300 hover:bg-zinc-50 hover:fill-black lg:opacity-0 lg:group-hover:opacity-100" />
+          <AddWishlistBtn game={game} inWishlist={inWishlist} />
         </div>
 
         <div className="hidden lg:block">

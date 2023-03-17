@@ -16,7 +16,7 @@ function DropDown({ platforms }: Props) {
   const setTitle = useTitleStore((state) => state.setTitle);
 
   const handleClickPlatform = (platform: Platform) => {
-    setTitle(platform.name as string);
+    setTitle(`Games for ${platform.name as string}`);
   };
 
   return (

@@ -9,7 +9,7 @@ type Props = {
 
 function CardDetails({ game, setShow }: Props) {
   return (
-    <div className="z-50 flex animate-fade flex-col bg-[#202020] lg:absolute lg:-bottom-[182px] lg:left-0 lg:right-0 lg:hidden lg:p-4 lg:pt-0 lg:group-hover:block">
+    <div className="z-50 flex animate-fade flex-col bg-[#202020] lg:absolute lg:-bottom-[135px] lg:left-0 lg:right-0 lg:hidden lg:p-4 lg:pt-0 lg:group-hover:block rounded-b-md">
       <ul className="flex flex-col text-sm">
         <li className="flex items-center justify-between border-b border-zinc-700/60 py-3 text-neutral-500">
           <p>Release date:</p>
@@ -33,7 +33,7 @@ function CardDetails({ game, setShow }: Props) {
         </li>
       </ul>
       <button
-        className="mx-auto mt-4 inline-block max-w-max border-b border-zinc-100/40 text-sm"
+        className="mx-auto mt-4 inline-block max-w-max border-b border-zinc-100/40 text-sm lg:hidden"
         onClick={() => setShow(true)}
       >
         View less
