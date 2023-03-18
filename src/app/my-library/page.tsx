@@ -1,20 +1,20 @@
 "use client";
 import GameCard from "@/components/GameCard";
-import { useWishlistStore, useWishlistStoreId } from "@/store/games";
+import { useLibraryStore, useLibraryStoreId } from "@/store/games";
 
-function WishlistPage() {
-  const { wishlistGames } = useWishlistStore();
-  const { wishlistGamesId } = useWishlistStoreId();
+function LibraryPage() {
+  const { libraryGames } = useLibraryStore();
+  const { libraryGamesId } = useLibraryStoreId();
 
   return (
     <div>
       <section className="mt-7 flex flex-wrap justify-center gap-5 md:justify-start">
-        {wishlistGames.length ? (
-          wishlistGames?.map((game) => (
+        {libraryGames.length ? (
+          libraryGames?.map((game) => (
             <GameCard
               key={game.id}
               game={game}
-              inWishlist={wishlistGamesId.includes(game.id)}
+              inLibrary={libraryGamesId.includes(game.id)}
             />
           ))
         ) : (
@@ -25,4 +25,4 @@ function WishlistPage() {
   );
 }
 
-export default WishlistPage;
+export default LibraryPage;

@@ -3,22 +3,23 @@
 import PlatformIcon from "@/components/PlatformIcon";
 import type { Result } from "@/types/games";
 import { useState } from "react";
-import { FaPlus } from "react-icons/fa";
 import AddWishlistBtn from "./AddWishlistBtn";
 import CardDetails from "./CardDetails";
+import LibraryBtn from "./LibraryBtn";
 
 type Props = {
   game: Result;
-  inWishlist: boolean;
+  inWishlist?: boolean;
+  inLibrary?: boolean;
 };
 
-function GameCard({ game, inWishlist }: Props) {
+function GameCard({ game, inWishlist, inLibrary }: Props) {
   const [show, setShow] = useState<Boolean>(true);
 
   return (
     <div
       key={game.id}
-      className="group w-full max-w-[463px] overflow-hidden rounded-xl transition-all duration-300 md:h-max md:max-w-[382px] lg:overflow-visible lg:hover:z-50 lg:hover:scale-[1.03]"
+      className="group w-full max-w-[463px] overflow-hidden rounded-xl transition-all duration-300 md:h-max md:max-w-[382px] lg:overflow-visible lg:hover:z-10 lg:hover:scale-[1.03]"
     >
       <figure className="relative">
         <img
@@ -39,11 +40,8 @@ function GameCard({ game, inWishlist }: Props) {
           </span>
         </div>
         <h2 className="text-2xl font-bold">{game.name}</h2>
-        <div className="mt-1 flex items-center gap-1">
-          <button className="flex items-center rounded-md bg-zinc-700 py-[3px] px-[6px] text-[12px] font-normal transition-all duration-300 hover:bg-zinc-50 hover:text-black">
-            <FaPlus className="mr-1 text-sm font-bold" />
-            {game.added}
-          </button>
+        <div className="relative mt-1 flex items-center gap-1">
+          <LibraryBtn game={game} inLibrary={inLibrary} />
           <AddWishlistBtn game={game} inWishlist={inWishlist} />
         </div>
 

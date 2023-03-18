@@ -24,6 +24,18 @@ type wishlistIdsState = {
   removeWishlistGameId: (id: number) => void;
 };
 
+type libraryState = {
+  libraryGames: Result[];
+  addLibraryGame: (game: Result) => void;
+  removeLibraryGame: (id: number) => void;
+};
+
+type libraryIdsState = {
+  libraryGamesId: number[];
+  addLibraryGameId: (id: number) => void;
+  removeLibraryGameId: (id: number) => void;
+};
+
 export const useGameStore = create<gamesState>((set) => ({
   gamesData: null,
   setGames: (games: any) =>
@@ -78,6 +90,48 @@ export const useWishlistStoreId = create(
     }),
     {
       name: "wishlist-id",
+    }
+  )
+);
+
+export const useLibraryStore = create(
+  persist<libraryState>(
+    (set) => ({
+      libraryGames: [],
+      addLibraryGame: (game: Result) =>
+        set((state) => ({
+          libraryGames: [...state.libraryGames, game],
+        })),
+      removeLibraryGame: (id: number) =>
+        set((state) => ({
+          libraryGames: state.libraryGames.filter(
+            (game: Result) => game.id !== id
+          ),
+        })),
+    }),
+    {
+      name: "library-games",
+    }
+  )
+);
+
+export const useLibraryStoreId = create(
+  persist<libraryIdsState>(
+    (set) => ({
+      libraryGamesId: [],
+      addLibraryGameId: (id: number) =>
+        set((state) => ({
+          libraryGamesId: [...state.libraryGamesId, id],
+        })),
+      removeLibraryGameId: (id: number) =>
+        set((state) => ({
+          libraryGamesId: state.libraryGamesId.filter(
+            (gameId) => gameId !== id
+          ),
+        })),
+    }),
+    {
+      name: "library-id",
     }
   )
 );

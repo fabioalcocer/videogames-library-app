@@ -28,7 +28,7 @@ function DropDown({ platforms }: Props) {
               "floating w-36 bg-neutral-700/40 p-2 px-4 text-sm text-zinc-100 rounded-md",
           },
         }}
-        className="px-5 text-center"
+        className="px-5 text-center z-50"
         label="Platforms"
         inline={true}
       >
@@ -43,7 +43,7 @@ function DropDown({ platforms }: Props) {
                   <p>{platform.name}</p>
                   <AiOutlineRight className="absolute right-2" />
                 </Dropdown.Item>
-                <div className="absolute left-32 top-20 z-30 hidden w-max justify-center rounded-md bg-white shadow-md hover:block peer-hover:block">
+                <div className="absolute left-32 top-20 z-50 hidden w-max justify-center rounded-md bg-white shadow-md hover:block peer-hover:block">
                   {playStationPlatforms?.map((playPlatform) => (
                     <Link key={playPlatform.id} href={`/${playPlatform.slug}`}>
                       <Dropdown.Item

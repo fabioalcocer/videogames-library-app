@@ -5,7 +5,7 @@ import type { Result } from "@/types/games";
 
 type Props = {
   game: Result;
-  inWishlist: boolean;
+  inWishlist?: boolean;
 };
 
 function AddWishlistBtn({ game, inWishlist }: Props) {
@@ -26,7 +26,6 @@ function AddWishlistBtn({ game, inWishlist }: Props) {
       removeWishlistGameId(game.id);
       return;
     }
-
     addWishlistGame(game);
     addWishlistGameId(game.id);
   };
