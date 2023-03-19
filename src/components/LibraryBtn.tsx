@@ -7,9 +7,10 @@ import type { Result } from "@/types/games";
 type Props = {
   game: Result;
   inLibrary?: boolean;
+  setGameState: (game: Result) => void;
 };
 
-function LibraryBtn({ game, inLibrary }: Props) {
+function LibraryBtn({ game, inLibrary, setGameState }: Props) {
   const addLibraryGame = useLibraryStore((state) => state.addLibraryGame);
   const removeLibraryGame = useLibraryStore((state) => state.removeLibraryGame);
   const addLibraryGameId = useLibraryStoreId((state) => state.addLibraryGameId);
@@ -28,14 +29,16 @@ function LibraryBtn({ game, inLibrary }: Props) {
   };
 
   return (
-    <button
-      className="peer flex items-center rounded-md bg-zinc-700 py-[3px] px-[6px] text-[12px] font-normal transition-all duration-300 hover:bg-zinc-50 hover:text-black"
-      onClick={() => toggleGameLibrary(game)}
-    >
-      <FaPlus className="mr-1 text-sm font-bold" />
-      {game.added}
-      <LibraryDropdown />
-    </button>
+    <div className="flex items-center overflow-hidden rounded-md bg-zinc-700">
+      <button
+        className="peer flex items-center bg-zinc-700 py-[3px] px-[6px] pr-2 text-[12px] font-normal transition-all duration-300 hover:bg-zinc-50 hover:text-black"
+        onClick={() => toggleGameLibrary(game)}
+      >
+        <FaPlus className="mr-1 text-sm font-bold" />
+        {game.added}
+      </button>
+      <LibraryDropdown game={game} setGameState={setGameState} />
+    </div>
   );
 }
 

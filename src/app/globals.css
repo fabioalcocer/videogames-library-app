@@ -20,5 +20,9 @@ a {
 }
 
 .floating svg {
+  @apply ml-9 h-5 w-5 text-zinc-500;
+}
+
+.library-floating svg {
   @apply h-4 w-4 ml-1 text-zinc-100;
 }

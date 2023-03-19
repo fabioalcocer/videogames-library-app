@@ -37,6 +37,7 @@ export interface Result {
   short_screenshots:  ShortScreenshot[];
   parent_platforms:   Platform[];
   genres:             Genre[];
+  status?:             string
 }
 
 export interface AddedByStatus {
