@@ -1,8 +1,7 @@
 "use client";
 import { Dropdown } from "flowbite-react";
 import type { Result } from "@/types/games";
-import { useLibraryStore } from '../store/games';
-import { useState } from "react";
+import { useLibraryStore } from "../store/games";
 
 type Props = {
   game: Result;
@@ -17,18 +16,13 @@ enum GameStatus {
 }
 
 function LibraryDropdown({ game }: Props) {
-  const [gameState, setGameState] = useState<Result>(game);
-
   const updateLibraryGame = useLibraryStore((state) => state.updateLibraryGame);
-  
+
   const createStatusGame = (status: string) => {
-    // console.log(game);
-    setGameState({
+    updateLibraryGame({
       ...game,
       status,
     });
-
-    updateLibraryGame(gameState)
   };
 
   return (

@@ -1,10 +1,15 @@
 "use client";
 import GameCard from "@/components/GameCard";
-import { useWishlistStore, useWishlistStoreId } from "@/store/games";
+import {
+  useWishlistStore,
+  useWishlistStoreId,
+  useLibraryStoreId,
+} from "@/store/games";
 
 function WishlistPage() {
   const { wishlistGames } = useWishlistStore();
   const { wishlistGamesId } = useWishlistStoreId();
+  const { libraryGamesId } = useLibraryStoreId();
 
   return (
     <div>
@@ -14,6 +19,7 @@ function WishlistPage() {
             <GameCard
               key={game.id}
               game={game}
+              inLibrary={libraryGamesId.includes(game.id)}
               inWishlist={wishlistGamesId.includes(game.id)}
             />
           ))
