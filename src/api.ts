@@ -1,5 +1,4 @@
 import axios from "axios";
-import { Result } from '@/types/games';
 import { Games } from './types/games';
 
 const gamesApi = axios.create({

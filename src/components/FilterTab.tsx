@@ -17,7 +17,7 @@ function FilterTab() {
 
   const setLibraryGames = useLibraryStore((state) => state.setLibraryGames);
 
-  const handleFilter = (e: MouseEvent<HTMLLIElement>, tag: string) => {
+  const handleFilter = (tag: string) => {
     setLibraryGames(initialLibraryGames);
     setActive(tag);
 
@@ -40,7 +40,7 @@ function FilterTab() {
         {TAGS.map((tag) => (
           <li
             key={tag}
-            onClick={(e) => handleFilter(e, tag)}
+            onClick={(e) => handleFilter(tag)}
             className={`${
               active === tag ? "border-b-2 text-zinc-50" : "text-zinc-50/40"
             } cursor-pointer pb-1 text-xl font-medium`}

@@ -18,7 +18,7 @@ function GameCardsContainer({ results }: Props) {
 
   return (
     <section className="mt-7 flex flex-wrap justify-center gap-5 md:justify-start">
-      {gamesData ? (
+      {gamesData?.length ? (
         <>
           {gamesData.map((game: Result) => (
             <GameCard

@@ -4,14 +4,22 @@ import { usePathname } from "next/navigation";
 import { GoGift } from "react-icons/go";
 import { BsCollection } from "react-icons/bs";
 import { useTitleStore } from "@/store/games";
+import { useGameStore } from "@/store/games";
 
 function AsideBar() {
   const setTitle = useTitleStore((state) => state.setTitle);
+  const setGames = useGameStore((state) => state.setGames);
+
   const path = usePathname();
+
+  const handleGoHome = () => {
+    setGames([]);
+    setTitle("New and trending");
+  };
 
   return (
     <aside className="sticky top-0 mr-2 flex h-96 w-full flex-col gap-5 py-6 px-5">
-      <Link href="/" className="text-2xl font-bold">
+      <Link href="/" className="text-2xl font-bold" onClick={handleGoHome}>
         Home
       </Link>
       <p className="text-2xl font-bold">Reviews</p>
