@@ -26,15 +26,15 @@ function LibraryDropdown({ game }: Props) {
   };
 
   return (
-    <div className="w-fit">
+    <div className="w-fit bg-emerald-500 py-1">
       <Dropdown
         theme={{
           floating: {
             target:
-              "library-floating border-l border-slate-100/50 bg-neutral-700/40 bg-transparent text-sm pr-1 z-50 text-left",
+              "library-floating bg-neutral-700/40 bg-transparent text-sm pr-1 z-50 text-left",
           },
         }}
-        className="z-50 w-[262px]"
+        className="z-50 w-[262px] bg-zinc-50"
         label=""
         inline={true}
       >

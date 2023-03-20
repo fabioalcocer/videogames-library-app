@@ -1,38 +1,53 @@
 import { useLibraryStore } from "@/store/games";
 import type { Result } from "@/types/games";
-import { MouseEvent } from "react";
+import { MouseEvent, useState } from "react";
+
+const TAGS: string[] = [
+  "All games",
+  "Uncategorized",
+  "Currently playing",
+  "Completed",
+  "Played",
+  "Not Played",
+];
 
 function FilterTab() {
   const { initialLibraryGames, libraryGames } = useLibraryStore();
+  const [active, setActive] = useState(TAGS[0]);
 
   const setLibraryGames = useLibraryStore((state) => state.setLibraryGames);
 
-  const handleFilter = (e: MouseEvent<HTMLLIElement>) => {
-    console.log(e.currentTarget.textContent);
+  const handleFilter = (e: MouseEvent<HTMLLIElement>, tag: string) => {
+    setLibraryGames(initialLibraryGames);
+    setActive(tag);
 
-    const libraryGamesFiltered = libraryGames.filter(
-      (game: Result) => game.status === e.currentTarget.textContent
+    if (tag === TAGS[0]) return;
+
+    const libraryGamesFiltered = initialLibraryGames.filter(
+      (game: Result) => game.status === tag
     );
 
-    if (e.currentTarget.textContent !== "All games") {
-      return setLibraryGames(libraryGamesFiltered);
-    }
+    setLibraryGames(libraryGamesFiltered);
 
-    setLibraryGames(initialLibraryGames);
+    // tag !== TAGS[0]
+    //   ? setLibraryGames(libraryGamesFiltered)
+    //   : setLibraryGames(initialLibraryGames);
   };
 
   return (
     <div className="my-5">
       <ul className="flex gap-12">
-        <li className="text-xl font-medium" onClick={(e) => handleFilter(e)}>
-          All games
-        </li>
-        <li
-          className="cursor-pointer text-xl font-medium text-zinc-50/40"
-          onClick={(e) => handleFilter(e)}
-        >
-          Uncategorized
-        </li>
+        {TAGS.map((tag) => (
+          <li
+            key={tag}
+            onClick={(e) => handleFilter(e, tag)}
+            className={`${
+              active === tag ? "border-b-2 text-zinc-50" : "text-zinc-50/40"
+            } cursor-pointer pb-1 text-xl font-medium`}
+          >
+            {tag}
+          </li>
+        ))}
       </ul>
     </div>
   );

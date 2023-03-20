@@ -32,15 +32,15 @@ function LibraryBtn({ game, inLibrary }: Props) {
       <button
         className={`${
           inLibrary
-            ? "bg-zinc-50 text-slate-900"
-            : "bg-zinc-700 text-zinc-50 hover:text-black "
-        } peer flex items-center py-[3px] px-[6px] pr-2 text-[12px] font-normal transition-all duration-300 hover:bg-zinc-50`}
+            ? "border-r border-zinc-100/40 bg-emerald-500 text-zinc-50"
+            : "bg-zinc-700 text-zinc-50 hover:bg-zinc-50 hover:text-black"
+        } peer flex items-center py-[3px] px-[6px] pr-2 text-[12px] font-normal transition-all duration-300`}
         onClick={() => toggleGameLibrary(game)}
       >
         <FaPlus className="mr-1 text-sm font-bold" />
         {game.added}
       </button>
-      <LibraryDropdown game={game} />
+      {inLibrary && <LibraryDropdown game={game} />}
     </div>
   );
 }
