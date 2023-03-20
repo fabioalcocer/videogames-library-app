@@ -27,7 +27,7 @@ export default async function RootLayout({ children }: Props) {
         <ReactQueryWrapper>
           <div className="w-full">
             <Header />
-            <main className="relative mx-auto grid min-h-screen grid-cols-aside gap-5 py-8 px-5 pt-2 text-zinc-100">
+            <main className="relative mx-auto lg:grid min-h-screen lg:grid-cols-aside gap-5 py-8 px-5 pt-2 text-zinc-100">
               <AsideBar />
               <div>
                 <InfoSection />

@@ -26,12 +26,15 @@ function SearchResults({ data }: Props) {
       ref={refSearchResults}
       className={`${
         show ? "hidden" : "visible"
-      } absolute top-10 z-50 mt-3 flex w-full flex-col gap-2 rounded-xl px-5 pb-4 bg-zinc-800 font-semibold text-zinc-50`}
+      } absolute top-10 z-50 mt-3 flex w-full flex-col gap-2 rounded-xl bg-zinc-800 px-5 pb-4 font-semibold text-zinc-50`}
     >
-      <h3 className="text-xl font-bold py-2">Games</h3>
+      <h3 className="py-2 text-xl font-bold">Games</h3>
 
       {data?.slice(0, 4).map((game) => (
-        <div key={game.id} className="flex rounded-lg items-center hover:bg-stone-900 overflow-hidden">
+        <div
+          key={game.id}
+          className="flex items-center overflow-hidden rounded-lg hover:bg-stone-900"
+        >
           <img
             src={game.background_image}
             alt="game image"

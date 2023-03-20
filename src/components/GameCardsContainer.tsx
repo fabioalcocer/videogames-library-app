@@ -17,7 +17,7 @@ function GameCardsContainer({ results }: Props) {
   const { libraryGamesId } = useLibraryStoreId();
 
   return (
-    <section className="mt-7 flex flex-wrap justify-center gap-5 md:justify-start">
+    <section className="mt-7 flex flex-wrap justify-center gap-5 lg:justify-start">
       {gamesData?.length ? (
         <>
           {gamesData.map((game: Result) => (

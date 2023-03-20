@@ -18,7 +18,7 @@ function AsideBar() {
   };
 
   return (
-    <aside className="sticky top-0 mr-2 flex h-96 w-full flex-col gap-5 py-6 px-5">
+    <aside className="sticky top-0 mr-2 h-96 w-full flex-col gap-5 py-6 px-5 hidden lg:flex">
       <Link href="/" className="text-2xl font-bold" onClick={handleGoHome}>
         Home
       </Link>
