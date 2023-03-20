@@ -28,7 +28,7 @@ function GameCard({ game, inWishlist, inLibrary }: Props) {
           alt="background image game"
         />
       </figure>
-      <div className="relative grid gap-2 rounded-lg bg-[#202020] p-4 pb-7">
+      <div className="relative grid gap-2 bg-[#202020] p-4 pb-7 rounded-b-xl">
         <div className="flex w-full items-center justify-between">
           <div className="flex h-6 items-center gap-1 py-1">
             {game.parent_platforms?.map((platform) => (
