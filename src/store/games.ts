@@ -26,8 +26,10 @@ type wishlistIdsState = {
 
 type libraryState = {
   libraryGames: Result[];
+  setLibraryGames: (games: Result[]) => void;
   addLibraryGame: (game: Result) => void;
   removeLibraryGame: (id: number) => void;
+  updateLibraryGame: (game: Result) => void;
 };
 
 type libraryIdsState = {
@@ -94,10 +96,20 @@ export const useWishlistStoreId = create(
   )
 );
 
+// function handleEdit(item: Item) {
+//   setItems((items) => {
+//     return items.map((_item) => (_item.id === item.id ? item : _item));
+//   });
+// }
+
 export const useLibraryStore = create(
   persist<libraryState>(
     (set) => ({
       libraryGames: [],
+      setLibraryGames: (games: Result[]) =>
+        set((state) => ({
+          libraryGames: games,
+        })),
       addLibraryGame: (game: Result) =>
         set((state) => ({
           libraryGames: [...state.libraryGames, game],
@@ -106,6 +118,12 @@ export const useLibraryStore = create(
         set((state) => ({
           libraryGames: state.libraryGames.filter(
             (game: Result) => game.id !== id
+          ),
+        })),
+      updateLibraryGame: (game: Result) =>
+        set((state) => ({
+          libraryGames: state.libraryGames.map((_game: Result) =>
+            _game.id === game.id ? game : _game
           ),
         })),
     }),

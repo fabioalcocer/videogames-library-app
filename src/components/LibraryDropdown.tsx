@@ -1,10 +1,11 @@
 "use client";
 import { Dropdown } from "flowbite-react";
 import type { Result } from "@/types/games";
+import { useLibraryStore } from '../store/games';
+import { useState } from "react";
 
 type Props = {
   game: Result;
-  setGameState: (game: Result) => void;
 };
 
 enum GameStatus {
@@ -15,14 +16,19 @@ enum GameStatus {
   notPlayed = "Not Played",
 }
 
-function LibraryDropdown({ setGameState, game }: Props) {
-  const createStatusGame = (status: string) => {
-    console.log(status);
+function LibraryDropdown({ game }: Props) {
+  const [gameState, setGameState] = useState<Result>(game);
 
+  const updateLibraryGame = useLibraryStore((state) => state.updateLibraryGame);
+  
+  const createStatusGame = (status: string) => {
+    // console.log(game);
     setGameState({
       ...game,
       status,
     });
+
+    updateLibraryGame(gameState)
   };
 
   return (
@@ -88,7 +94,7 @@ function LibraryDropdown({ setGameState, game }: Props) {
             {game.status === GameStatus.played ? (
               <h4 className="text-base font-bold text-slate-900">Played ✅</h4>
             ) : (
-              <h4 className="text-base text-slate-900">PLayed</h4>
+              <h4 className="text-base text-slate-900">Played</h4>
             )}
             <p className="text-xs text-zinc-400">
               I gave up and won’t play it anymore

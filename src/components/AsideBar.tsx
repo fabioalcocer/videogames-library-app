@@ -37,7 +37,7 @@ function AsideBar() {
           )}
         </Link>
 
-        <Link href="/my-library" onClick={() => setTitle("My Library")}>
+        <Link href="/my-library" onClick={() => setTitle("My library")}>
           {path === "/my-library" ? (
             <div className="group flex cursor-pointer items-center gap-2 rounded-md bg-zinc-50 py-1 transition-all duration-300 hover:shadow-md hover:shadow-slate-600">
               <div className="grid w-fit place-content-center rounded-md bg-zinc-50 px-1 py-1 pr-[5px] text-xl transition-all duration-300">

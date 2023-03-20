@@ -15,7 +15,6 @@ type Props = {
 
 function GameCard({ game, inWishlist, inLibrary }: Props) {
   const [show, setShow] = useState<Boolean>(true);
-  const [gameState, setGameState] = useState(game);
 
   return (
     <div
@@ -43,11 +42,10 @@ function GameCard({ game, inWishlist, inLibrary }: Props) {
         <h2 className="text-2xl font-bold">{game.name}</h2>
         <div className="relative mt-1 flex items-center gap-1">
           <LibraryBtn
-            setGameState={setGameState}
-            game={gameState}
+            game={game}
             inLibrary={inLibrary}
           />
-          <AddWishlistBtn game={gameState} inWishlist={inWishlist} />
+          <AddWishlistBtn game={game} inWishlist={inWishlist} />
         </div>
 
         <div className="hidden lg:block">

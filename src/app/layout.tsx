@@ -4,9 +4,9 @@ import { Platform } from "@/types/platforms";
 import Header from "@/components/Header";
 import TabsSection from "@/components/TabsSection";
 import DropDown from "@/components/DropDown";
-import Description from "@/components/Description";
 import ReactQueryWrapper from "./ReactQueryWrapper";
 import AsideBar from "@/components/AsideBar";
+import InfoSection from "@/components/InfoSection";
 
 export const metadata = {
   title: "Videogame library ",
@@ -30,7 +30,7 @@ export default async function RootLayout({ children }: Props) {
             <main className="relative mx-auto grid min-h-screen grid-cols-aside gap-5 py-8 px-5 pt-2 text-zinc-100">
               <AsideBar />
               <div>
-                <Description />
+                <InfoSection />
                 <TabsSection>
                   <DropDown platforms={platforms} />
                 </TabsSection>

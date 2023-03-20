@@ -12,11 +12,8 @@ function Header() {
   return (
     <header className="flex w-full items-center justify-between px-6 py-5 text-zinc-100 md:justify-start md:px-10 md:py-8">
       <Link href="/" onClick={() => setTitle("New and trending")}>
-        <h1 className="text-lg font-extrabold tracking-[6px]">VLFA</h1>
+        <h1 className="text-lg font-extrabold tracking-[6px] mr-8">VLFA</h1>
       </Link>
-      <button className="ml-10 mr-4 w-36 rounded-md bg-white px-3 py-[3px] pl-5 text-sm text-zinc-900">
-        Rate top games
-      </button>
       <SearchBar />
       <nav className="ml-8 min-w-max">
         <ul className="flex items-center gap-4 py-1 text-sm font-semibold">
