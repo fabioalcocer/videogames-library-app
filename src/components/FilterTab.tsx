@@ -31,7 +31,7 @@ function FilterTab() {
   };
 
   return (
-    <div className="my-5 max-w-full overflow-x-scroll">
+    <div className="my-5 max-w-full overflow-x-scroll lg:overflow-hidden">
       <ul className="flex gap-12 items-center">
         {TAGS.map((tag) => (
           <li

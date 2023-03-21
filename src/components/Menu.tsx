@@ -18,7 +18,7 @@ function Menu({ setOpen }: Props) {
   };
 
   return (
-    <div className="absolute top-4 right-2 z-50 w-[80%] animate-fade rounded-2xl bg-white p-4 text-zinc-900 pb-6">
+    <div className="absolute top-4 right-2 z-50 w-[80%] animate-fade rounded-2xl bg-white p-4 pb-6 text-zinc-900">
       <IoCloseSharp
         onClick={() => setOpen(false)}
         className="absolute right-5 top-5 text-[2.5rem]"
@@ -27,15 +27,27 @@ function Menu({ setOpen }: Props) {
         <Link href="/" className="text-2xl font-bold" onClick={handleGoHome}>
           Home
         </Link>
-        <Link href="/wishlist" onClick={() => setTitle("Wishlist")}>
+        <Link
+          href="/wishlist"
+          onClick={() => {
+            setTitle("Wishlist");
+            setOpen(false);
+          }}
+        >
           <p className="text-2xl font-bold text-zinc-900">Whislist</p>
         </Link>
 
-        <Link href="/my-library" onClick={() => setTitle("My library")}>
+        <Link
+          href="/my-library"
+          onClick={() => {
+            setTitle("My library");
+            setOpen(false);
+          }}
+        >
           <p className="text-2xl font-bold text-zinc-900">My library</p>
         </Link>
-        <p className="text-2xl font-bold">Reviews</p>
-        <p className="text-2xl font-bold">New Releases</p>
+        <p className="text-2xl">Reviews</p>
+        <p className="text-2xl">New Releases</p>
       </div>
     </div>
   );
