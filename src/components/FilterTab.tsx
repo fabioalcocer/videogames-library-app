@@ -28,22 +28,18 @@ function FilterTab() {
     );
 
     setLibraryGames(libraryGamesFiltered);
-
-    // tag !== TAGS[0]
-    //   ? setLibraryGames(libraryGamesFiltered)
-    //   : setLibraryGames(initialLibraryGames);
   };
 
   return (
-    <div className="my-5">
-      <ul className="flex gap-12">
+    <div className="my-5 max-w-full overflow-x-scroll">
+      <ul className="flex gap-12 items-center">
         {TAGS.map((tag) => (
           <li
             key={tag}
             onClick={(e) => handleFilter(tag)}
             className={`${
               active === tag ? "border-b-2 text-zinc-50" : "text-zinc-50/40"
-            } cursor-pointer pb-1 text-xl font-medium`}
+            } cursor-pointer pb-1 text-lg lg:text-xl font-medium min-w-max`}
           >
             {tag}
           </li>
