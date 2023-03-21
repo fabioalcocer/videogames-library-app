@@ -3,9 +3,10 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { GoGift } from "react-icons/go";
 import { BsCollection } from "react-icons/bs";
-import { useTitleStore } from "@/store/games";
+import { useTitleStore } from "@/store/title";
 import { useGameStore } from "@/store/games";
-import { useLibraryStore } from "../store/games";
+import { useLibraryStore } from "@/store/library";
+
 
 function AsideBar() {
   const setTitle = useTitleStore((state) => state.setTitle);

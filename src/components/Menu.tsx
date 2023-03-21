@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { useTitleStore } from "@/store/games";
+import { useTitleStore } from "@/store/title";
 import { useGameStore } from "@/store/games";
 import { IoCloseSharp } from "react-icons/io5";
 

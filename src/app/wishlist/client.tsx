@@ -1,10 +1,8 @@
 "use client";
 import GameCard from "@/components/GameCard";
-import {
-  useWishlistStore,
-  useWishlistStoreId,
-  useLibraryStoreId,
-} from "@/store/games";
+import { useWishlistStore, useWishlistStoreId } from "@/store/wishlist";
+import { useLibraryStoreId } from "@/store/library";
+
 
 function WishlistPageClient() {
   const { wishlistGames } = useWishlistStore();

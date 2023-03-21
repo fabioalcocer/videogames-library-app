@@ -1,5 +1,5 @@
 "use client";
-import { useLibraryStore, useLibraryStoreId } from "@/store/games";
+import { useLibraryStore, useLibraryStoreId } from "@/store/library";
 import { FaPlus } from "react-icons/fa";
 import LibraryDropdown from "./LibraryDropdown";
 import type { Result } from "@/types/games";

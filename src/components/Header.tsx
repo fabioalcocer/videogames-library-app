@@ -2,8 +2,7 @@
 import Link from "next/link";
 import { GrMenu } from "react-icons/gr";
 import { FiMoreHorizontal } from "react-icons/fi";
-import { useTitleStore } from "@/store/games";
-
+import { useTitleStore } from "@/store/title";
 import SearchBar from "./SearchBar";
 import { useState } from "react";
 import Menu from "./Menu";

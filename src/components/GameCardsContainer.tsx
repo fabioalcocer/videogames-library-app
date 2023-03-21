@@ -1,11 +1,9 @@
 "use client";
 import GameCard from "@/components/GameCard";
 import type { Result } from "@/types/games";
-import {
-  useGameStore,
-  useWishlistStoreId,
-  useLibraryStoreId,
-} from "@/store/games";
+import { useWishlistStoreId } from "@/store/wishlist";
+import { useGameStore } from "@/store/games";
+import { useLibraryStoreId } from "@/store/library";
 
 type Props = {
   results: Result[];
@@ -17,7 +15,7 @@ function GameCardsContainer({ results }: Props) {
   const { libraryGamesId } = useLibraryStoreId();
 
   return (
-    <section className="mt-7 flex flex-wrap justify-center gap-5 lg:justify-start">
+    <section className="mt-7 grid grid-flow-row-dense grid-cols-1 place-items-center gap-4 md:grid-cols-3 lg:grid-cols-4">
       {gamesData?.length ? (
         <>
           {gamesData.map((game: Result) => (

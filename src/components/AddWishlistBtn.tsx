@@ -1,5 +1,5 @@
 "use client";
-import { useWishlistStore, useWishlistStoreId } from "@/store/games";
+import { useWishlistStore, useWishlistStoreId } from "@/store/wishlist";
 import { GoGift } from "react-icons/go";
 import type { Result } from "@/types/games";
 

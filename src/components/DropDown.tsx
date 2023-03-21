@@ -1,5 +1,5 @@
 "use client";
-import { useTitleStore } from "@/store/games";
+import { useTitleStore } from "@/store/title";
 import type { Platform } from "@/types/platforms";
 import { filterPlatformsFn } from "@/utils/filterPlatforms";
 import { Dropdown } from "flowbite-react";

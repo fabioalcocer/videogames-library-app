@@ -19,7 +19,7 @@ function GameCard({ game, inWishlist, inLibrary }: Props) {
   return (
     <div
       key={game.id}
-      className="group w-full max-w-[463px] overflow-hidden rounded-xl transition-all duration-300 md:h-max md:max-w-[382px] lg:overflow-visible lg:hover:z-10 lg:hover:scale-[1.03]"
+      className="group w-full max-w-[463px] h-auto overflow-hidden rounded-xl transition-all duration-300 md:h-max md:max-w-[382px] lg:overflow-visible lg:hover:z-10 lg:hover:scale-[1.03]"
     >
       <figure className="relative">
         <img

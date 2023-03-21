@@ -1,6 +1,6 @@
-import { useLibraryStore } from "@/store/games";
+import { useLibraryStore } from "@/store/library";
 import type { Result } from "@/types/games";
-import { MouseEvent, useState } from "react";
+import { useState } from "react";
 
 const TAGS: string[] = [
   "All games",

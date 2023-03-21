@@ -1,7 +1,7 @@
 "use client";
 import { Dropdown } from "flowbite-react";
 import type { Result } from "@/types/games";
-import { useLibraryStore } from "../store/games";
+import { useLibraryStore } from "@/store/library";
 import { GameStatus } from "@/types/status";
 
 type Props = {

@@ -1,5 +1,5 @@
 "use client";
-import { useTitleStore } from "@/store/games";
+import { useTitleStore } from "@/store/title";
 import { usePathname } from "next/navigation";
 import FilterTab from "./FilterTab";
 
