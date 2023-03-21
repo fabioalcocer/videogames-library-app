@@ -10,7 +10,7 @@ function SearchResults({ data }: Props) {
   return (
     <>
       {data?.length && (
-        <div className="absolute top-10 z-50 mt-3 flex w-full flex-col gap-2 rounded-xl bg-zinc-800 px-5 pb-4 font-semibold text-zinc-50">
+        <div className="absolute top-10 -left-20 z-50 mt-3 flex min-w-[90vw] flex-col gap-2 rounded-xl bg-zinc-800 px-5 pb-4 font-semibold text-zinc-50 md:left-0 md:min-w-full">
           <h3 className="py-2 text-xl font-bold">Games</h3>
 
           {data?.slice(0, 4).map((game) => (

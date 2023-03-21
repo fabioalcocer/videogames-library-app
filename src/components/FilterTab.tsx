@@ -12,9 +12,8 @@ const TAGS: string[] = [
 ];
 
 function FilterTab() {
-  const { initialLibraryGames, libraryGames } = useLibraryStore();
   const [active, setActive] = useState(TAGS[0]);
-
+  const { initialLibraryGames } = useLibraryStore();
   const setLibraryGames = useLibraryStore((state) => state.setLibraryGames);
 
   const handleFilter = (tag: string) => {

@@ -3,6 +3,7 @@ import { useLibraryStore, useLibraryStoreId } from "@/store/games";
 import { FaPlus } from "react-icons/fa";
 import LibraryDropdown from "./LibraryDropdown";
 import type { Result } from "@/types/games";
+import { GameStatus } from "@/types/status";
 
 type Props = {
   game: Result;
@@ -23,7 +24,10 @@ function LibraryBtn({ game, inLibrary }: Props) {
       removeLibraryGameId(game.id);
       return;
     }
-    addLibraryGame(game);
+    addLibraryGame({
+      ...game,
+      status: GameStatus.uncategorized,
+    });
     addLibraryGameId(game.id);
   };
 

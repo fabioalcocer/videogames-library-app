@@ -2,18 +2,11 @@
 import { Dropdown } from "flowbite-react";
 import type { Result } from "@/types/games";
 import { useLibraryStore } from "../store/games";
+import { GameStatus } from "@/types/status";
 
 type Props = {
   game: Result;
 };
-
-enum GameStatus {
-  uncategorized = "Uncategorized",
-  playing = "Currently playing",
-  completed = "Completed",
-  played = "Played",
-  notPlayed = "Not Played",
-}
 
 function LibraryDropdown({ game }: Props) {
   const updateLibraryGame = useLibraryStore((state) => state.updateLibraryGame);

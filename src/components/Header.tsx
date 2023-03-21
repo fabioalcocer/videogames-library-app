@@ -15,7 +15,7 @@ function Header() {
   return (
     <header className="relative flex w-full items-center justify-between px-6 py-5 text-zinc-100 md:justify-start md:px-10 md:py-8">
       <Link href="/" onClick={() => setTitle("New and trending")}>
-        <h1 className="mr-5 text-lg font-extrabold tracking-[6px] lg:mr-8">
+        <h1 className="mr-2 text-lg font-extrabold tracking-[6px] lg:mr-8">
           VLFA
         </h1>
       </Link>
