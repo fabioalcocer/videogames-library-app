@@ -1,13 +1,13 @@
 import axios from "axios";
-import { Games } from './types/games';
+import { Games } from "./types/games";
 
 const gamesApi = axios.create({
   baseURL: "https://api.rawg.io/api",
 });
 
-export const getGames = async () => {
+export const getGames = async (page: number) => {
   const res = await gamesApi.get<Games>(
-    `/games?key=197ef46d995a4a3ab410d8bb4d6392b6`
+    `/games?key=197ef46d995a4a3ab410d8bb4d6392b6&page=${page}`
   );
   return res.data;
 };

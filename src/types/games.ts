@@ -1,9 +1,10 @@
 export interface Games {
   count:          number;
   next:           string;
-  previous:       null;
+  previous:       string | null;
   results:        Result[];
   user_platforms?: boolean;
+  current_page?: number;
 }
 
 export interface Result {
