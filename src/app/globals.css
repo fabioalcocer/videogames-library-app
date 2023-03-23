@@ -28,58 +28,21 @@ a {
 }
 
 .loader {
+  width: 48px;
+  height: 48px;
+  display: inline-block;
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  max-width: 6rem;
+  background: #FFF;
+  box-sizing: border-box;
+  animation: zeroRotation 1s ease infinite alternate-reverse;
 }
 
-.loader:before,
-.loader:after {
-  content: "";
-  position: absolute;
-  border-radius: 50%;
-  animation: pulsOut 1.8s ease-in-out infinite;
-  filter: drop-shadow(0 0 1rem rgba(255, 255, 255, 0.75));
-}
-
-.loader:before {
-  width: 100%;
-  padding-bottom: 100%;
-  box-shadow: inset 0 0 0 1rem #fff;
-  animation-name: pulsIn;
-}
-
-.loader:after {
-  width: calc(100% - 2rem);
-  padding-bottom: calc(100% - 2rem);
-  box-shadow: 0 0 0 0 #fff;
-}
-
-@keyframes pulsIn {
+@keyframes zeroRotation {
   0% {
-    box-shadow: inset 0 0 0 1rem #fff;
-    opacity: 1;
-  }
-
-  50%,
-  100% {
-    box-shadow: inset 0 0 0 0 #fff;
-    opacity: 0;
-  }
-}
-
-@keyframes pulsOut {
-  0%,
-  50% {
-    box-shadow: 0 0 0 0 #fff;
-    opacity: 0;
+    transform: scale(1) rotate(0deg);
   }
 
   100% {
-    box-shadow: 0 0 0 1rem #fff;
-    opacity: 1;
+    transform: scale(0.3) rotate(360deg);
   }
 }

@@ -1,5 +1,9 @@
 function Loader() {
-  return <span className="loader mt-40 col-span-full"></span>;
+  return (
+    <div className="flex">
+      <div className="loader mx-auto mt-20"></div>
+    </div>
+  );
 }
 
 export default Loader;

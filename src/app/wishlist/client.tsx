@@ -11,7 +11,7 @@ function WishlistPageClient() {
 
   return (
     <div>
-      <section className="mt-7 flex flex-wrap justify-center gap-5 md:justify-start">
+      <section className="mt-7 grid grid-cols-1 place-content-center place-items-center gap-4 md:grid-cols-3 lg:grid-cols-4">
         {wishlistGames.length ? (
           wishlistGames?.map((game) => (
             <GameCard
