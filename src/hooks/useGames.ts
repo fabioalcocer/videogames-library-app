@@ -10,5 +10,7 @@ async function fetchGames(ctx: QueryFunctionContext) {
 }
 
 export function useSetSearchData(query: string) {
-  return useQuery(["games", query], fetchGames);
+  return useQuery(["games", query], fetchGames, {
+    refetchOnWindowFocus: false,
+  });
 }

@@ -1,6 +1,7 @@
 import { getGamesByPlatform } from "@/api";
 import GameCardsContainer from "@/components/GameCardsContainer";
 import { findIdPlatform } from "@/utils/findIdPlatform";
+import PlatformPageClient from "./client";
 
 type Props = {
   params: {
@@ -10,7 +11,5 @@ type Props = {
 
 export default async function Slug({ params: { slug } }: Props) {
   const id = findIdPlatform(slug);
-  const { results } = await getGamesByPlatform(id);
-
-  return <GameCardsContainer results={results} />;
+  return <PlatformPageClient id={id} />;
 }

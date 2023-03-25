@@ -4,7 +4,7 @@ export interface Games {
   previous:       string | null;
   results:        Result[];
   user_platforms?: boolean;
-  current_page?: number;
+  current_page: number | undefined;
 }
 
 export interface Result {
