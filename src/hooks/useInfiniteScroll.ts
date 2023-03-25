@@ -9,10 +9,10 @@ export function useGames(id?: number) {
 
   const result = useInfiniteQuery(
     ["games", id],
-    ({ pageParam = 1 }) => {
+    () => {
       const data = id
-        ? getGamesByPlatform(id, pageParam)
-        : getGames(currentPage, setPage);
+        ? getGamesByPlatform({ id, currentPage, setPage })
+        : getGames({ currentPage, setPage });
       return data;
     },
     {

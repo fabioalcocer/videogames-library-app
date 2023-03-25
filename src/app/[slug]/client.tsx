@@ -19,7 +19,7 @@ function PlatformPageClient({ id }: Props) {
   return (
     <div>
       <InfiniteScroll
-        className="relative mt-7 grid min-h-[250px] grid-cols-1 place-content-center place-items-center gap-4 md:grid-cols-3 lg:grid-cols-4"
+        className="relative mt-7 grid min-h-[250px] grid-cols-1 place-content-center place-items-center gap-4 py-2 md:grid-cols-3 lg:grid-cols-4"
         dataLength={games.length}
         hasMore={hasNextPage || isLoading}
         next={() => fetchNextPage()}

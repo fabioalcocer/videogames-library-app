@@ -1,4 +1,5 @@
 "use client";
+import { usePageStore } from "@/store/page";
 import { useTitleStore } from "@/store/title";
 import type { Platform } from "@/types/platforms";
 import { filterPlatformsFn } from "@/utils/filterPlatforms";
@@ -14,9 +15,11 @@ function DropDown({ platforms }: Props) {
   const filterPlatforms: Platform[] = filterPlatformsFn(platforms);
   const playStationPlatforms = filterPlatforms[1]?.platforms?.slice(0, 4);
   const setTitle = useTitleStore((state) => state.setTitle);
+  const setPage = usePageStore((state) => state.setPage);
 
   const handleClickPlatform = (platform: Platform) => {
     setTitle(`Games for ${platform.name as string}`);
+    setPage(0)
   };
 
   return (
